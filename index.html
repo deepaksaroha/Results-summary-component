@@ -1,22 +1,210 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
-  
-  <title>Frontend Mentor | Results summary component</title>
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
 
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
-</head>
-<body>
+    <title>Frontend Mentor | Results summary component</title>
 
-  Your Result
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <style>
+
+      @import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk&display=swap');
+
+      .attribution {
+        font-size: 11px;
+        text-align: center;
+      }
+      .attribution a {
+        color: hsl(228, 45%, 44%);
+      }
+      p, h2, h4{
+        margin: 0;
+      }  
+      
+      body{
+        margin: 0;
+      }
+
+      img{
+        vertical-align: bottom;
+        margin-right: 5px;
+        height: 16px;
+      }
+
+      .wrapper{
+        height: 100vh;
+        width: 100vw;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: aliceblue;
+      }
+
+      .container {
+        width: 600px;
+        height: 400px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        border-radius: 25px;
+        background-color: white;
+        font-family: 'Hanken Grotesk', sans-serif;
+      }
+
+      .parts{
+        padding: 25px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+      }
+      
+      .parts1{
+        background-image: linear-gradient(hsl(252, 100%, 67%), hsl(241, 81%, 54%));
+        border-radius: 20px;
+        color: hsl(221, 100%, 96%, 0.9);
+        padding: 40px;
+      }
+
+      .tot-marks{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        padding: 55px;
+        height: 20px;
+        width: 20px;
+        overflow: visible;
+        background-image: linear-gradient(hsla(256, 72%, 46%, 1), hsla(241, 72%, 46%, 0));
+      }
+
+      #tot-ob-marks{
+        font-size: 40px;
+        font-weight: 800;
+      }
+
+      #of-hdrd{
+        font-size: 12px;
+        white-space: nowrap;
+      }
+
+      .content-text{
+        text-align: center;
+        font-size: 16px;
+        padding-bottom: 10px;
+      }
+
+
+      .parts2{        
+        font-weight: 600;
+      }
+
+      #header{
+        width: 100%;
+        text-align: left;
+      }
+
+      .marks{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 10px;
+        width: 100%;
+        font-size: 14px;
+      }
+
+      .marks-item{
+        display: flex;
+        justify-content: space-between;
+        padding: 1em;
+        border-radius: 10px;
+        align-items: center;
+      }
+
+      .marks-item1{
+        background-color: hsla(0, 100%, 67%, 0.05);
+      }
+
+      .marks-text1{
+        color: hsla(0, 100%, 67%, 0.9);
+      }
+
+      .marks-item2{
+        background-color: hsla(39, 100%, 56%, 0.05);
+      }
+
+      .marks-text2{
+        color: hsla(39, 100%, 56%, 0.9);
+      }
+
+      .marks-item3{
+        background-color: hsla(166, 100%, 37%, 0.05);
+      }
+
+      .marks-text3{
+        color: hsla(166, 100%, 37%, 0.9);
+      }
+
+      .marks-item4{
+        background-color: hsla(234, 85%, 45%, 0.05);
+      }
+
+      .marks-text4{
+        color: hsla(234, 85%, 45%, 0.9);
+      }
+
+      .hdrd{
+        color: hsla(224, 30%, 27%, 0.5);
+      }
+
+      .obmarks{
+        color: hsl(224, 30%, 27%);
+      }
+
+      .btn{
+        width: 100%;
+        border-radius: 20px;
+        border: none;
+        padding: 1em;
+        background-image: linear-gradient(hsl(252, 100%, 67%), hsl(241, 81%, 54%));
+        color: white;
+        font-weight: 600;
+      }
+
+      .btn:hover{
+        background-image: none;
+        background-color: hsl(224, 30%, 27%);
+      }
+
+      @media only screen and (max-width: 375px) {
+        .container {
+          width: 350px;
+          height: unset;
+          display: flex;
+          flex-direction: column;
+          border-radius: 0px;
+        }
+        .parts{
+          gap: 20px;
+        }
+        .parts1{
+          border-radius: 0 0 20px 20px;
+        }
+      }
+
+    </style>
+  </head>
+  <body>
+    <!-- Your Result
   76
   of 100
 
@@ -42,6 +230,57 @@
   <div class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
     Coded by <a href="#">Your Name Here</a>.
-  </div>
-</body>
+  </div> -->
+
+    <!-- ui code -->
+    <div class="wrapper">
+      <main class="container">
+        <aside class="parts parts1">
+          <h4>Your Result</h4>
+          <div class="tot-marks">
+            <p id="tot-ob-marks">76</p>
+            <p id="of-hdrd">of 100</p>
+          </div>
+          <h2>Great</h2>
+          <p class="content-text">
+            You scored higher than 65% of the people who have taken these tests.
+          </p>
+        </aside>
+        <article class="parts parts2">
+          <h2 id="header">Summary</h2>
+          <main class="marks">
+            <div class="marks-item marks-item1">
+              <div class="marks-text1">
+                <img src="./assets/images/icon-reaction.svg" alt="">
+                Reaction
+              </div>
+              <div class="obmarks">80 <span class="hdrd">/ 100</span></div>
+            </div>
+            <div class="marks-item marks-item2">
+              <div class="marks-text2">                
+                <img src="./assets/images/icon-memory.svg" alt="">
+                Memory
+              </div>
+              <div class="obmarks">92 <span class="hdrd">/ 100</span></div>
+            </div>
+            <div class="marks-item marks-item3">
+              <div class="marks-text3">
+                <img src="./assets/images/icon-verbal.svg" alt="">
+                Verbal
+              </div>
+              <div class="obmarks">61 <span class="hdrd">/ 100</span></div>
+            </div>
+            <div class="marks-item marks-item4">
+              <div class="marks-text4">
+                <img src="./assets/images/icon-visual.svg" alt="">
+                Visual
+              </div>
+              <div class="obmarks">72 <span class="hdrd">/ 100</span></div>
+            </div>
+          </main>
+          <button class="btn">Continue</button>
+        </article>
+      </main>
+    </div>
+  </body>
 </html>
